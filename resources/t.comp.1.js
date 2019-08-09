@@ -1,7 +1,6 @@
 T.add('Comp1', ['Comp2', 'Comp3'], function ($autowire) {
 
     var $construct = function () {
-        console.debug('Comp1::$construct');
         $private.registerEventHandler();
         return $public;
     };

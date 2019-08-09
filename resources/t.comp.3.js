@@ -1,7 +1,6 @@
 T.add('Comp3', [], function () {
 
     var $construct = function () {
-        console.debug('Comp3::$construct');
         return $public;
     };
 
