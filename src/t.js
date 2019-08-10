@@ -1,4 +1,4 @@
-var T = (function ($) {
+var T = (function () {
 
     var $construct = function () {
         return $public;
@@ -59,6 +59,6 @@ var T = (function ($) {
 
     return $construct();
 
-})(window.jQuery);
+})();
 
 $(T.initialize);
