@@ -1,4 +1,4 @@
-T.add('Comp2', ['Comp3'], function ($autowire) {
+T.add('Comp2', ['Comp3'], function ($wire) {
 
     var $construct = function () {
         return $public;
@@ -8,7 +8,7 @@ T.add('Comp2', ['Comp3'], function ($autowire) {
 
         method: function () {
             console.debug('Comp2::$public.method');
-            $autowire['Comp3'].method();
+            $wire['Comp3'].method();
         }
 
     };

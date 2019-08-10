@@ -1,4 +1,4 @@
-T.add('Comp1', ['Comp2', 'Comp3'], function ($autowire) {
+T.add('Comp1', ['Comp2', 'Comp3'], function ($wire) {
 
     var $construct = function () {
         $private.registerEventHandler();
@@ -12,8 +12,8 @@ T.add('Comp1', ['Comp2', 'Comp3'], function ($autowire) {
         },
 
         handleEvent: function () {
-            $autowire['Comp2'].method();
-            $autowire['Comp3'].method2();
+            $wire['Comp2'].method();
+            $wire['Comp3'].method2();
         }
 
     };

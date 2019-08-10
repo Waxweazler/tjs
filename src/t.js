@@ -12,22 +12,22 @@ var T = (function ($) {
             T.util.log('T::build::' + name);
             var component = $private.components[name];
             if (!component.instance) {
-                $private.autowire(component);
+                $private.wire(component);
                 $private.construct(component);
             }
             return component.instance;
         },
 
-        autowire: function (component) {
+        wire: function (component) {
             component.dependencies.forEach(function (dependency) {
-                T.util.log('T::autowire::' + dependency + '->' + component.name);
-                component.autowire[dependency] = $private.build(dependency);
+                T.util.log('T::wire::' + dependency + '->' + component.name);
+                component.wire[dependency] = $private.build(dependency);
             });
         },
 
         construct: function (component) {
             T.util.log('T::construct::' + component.name);
-            component.instance = component.clazz(component.autowire);
+            component.instance = component.clazz(component.wire);
         }
 
     };
@@ -42,7 +42,7 @@ var T = (function ($) {
         add: function (name, dependencies, clazz) {
             T.util.log('T::add::' + name);
             $private.components[name] = {
-                name: name, dependencies: dependencies, clazz: clazz, autowire: {}, instance: null
+                name: name, dependencies: dependencies, clazz: clazz, wire: {}, instance: null
             };
         },
 
