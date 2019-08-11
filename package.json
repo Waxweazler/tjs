@@ -2,10 +2,16 @@
   "name": "t.comp",
   "version": "0.1.0",
   "scripts": {
-    "build": "uglifyjs src/t.js --mangle --output dist/t.min.js"
+    "build": "uglifyjs src/t.js --mangle --output dist/t.min.js",
+    "test": "karma start test/karma.conf.js"
   },
   "devDependencies": {
     "jquery": "~3.4.1",
+    "karma": "~4.2.0",
+    "karma-cli": "~2.0.0",
+    "karma-jasmine": "~2.0.1",
+    "karma-jquery": "~0.2.4",
+    "karma-phantomjs-launcher": "~1.0.4",
     "uglify-js": "~3.6.0"
   }
 }

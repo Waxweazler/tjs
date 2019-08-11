@@ -46,6 +46,11 @@ var T = (function () {
             };
         },
 
+        get: function (name) {
+            T.util.log('T::get::' + name);
+            return $private.build(name);
+        },
+
         util: {
 
             log: function () {
