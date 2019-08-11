@@ -36,7 +36,7 @@ var T = (function () {
 
         initialize: function () {
             T.log('T::initialize');
-            $.each($private.components, $private.build);
+            Object.keys($private.components).forEach($private.build);
         },
 
         add: function (name, dependencies, clazz) {
@@ -62,4 +62,4 @@ var T = (function () {
 
 })();
 
-$(T.initialize);
+document.addEventListener('DOMContentLoaded', T.initialize);

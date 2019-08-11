@@ -6,8 +6,8 @@ module.exports = function (config) {
             'src/t.js',
             'test/spec/*.js'
         ],
-        frameworks: ['jasmine', 'jquery-3.4.0'],
-        plugins: ['karma-jasmine', 'karma-jquery', 'karma-phantomjs-launcher'],
+        frameworks: ['jasmine'],
+        plugins: ['karma-jasmine', 'karma-phantomjs-launcher'],
         singleRun: true
     })
 };
