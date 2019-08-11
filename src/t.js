@@ -9,9 +9,9 @@ var T = (function () {
         components: {},
 
         build: function (name) {
-            T.util.log('T::build::' + name);
             var component = $private.components[name];
             if (!component.instance) {
+                T.util.log('T::build::' + name);
                 $private.wire(component);
                 $private.construct(component);
             }
