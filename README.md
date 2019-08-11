@@ -18,8 +18,31 @@ npm run test
 ## component
 The structure of a component is not completely fixed, but there are some restrictions
 and a recommended structure definitely exists, so here is a documentation of it.
-```
-TODO :)
+```js
+T.add('Component', ['Dependency'], function ($wire) {
+    
+    var $construct = function () {
+        $private.method();
+        return $public;
+    };
+    
+    var $private = {
+        method: function () {
+            $wire['Dependency'].method();
+        }
+    };
+    
+    var $public = {
+        method: function () {
+            $private.method();
+        }
+    };
+    
+    return $construct();
+    
+});
+
+T.get('Component').method();
 ```
 
 ## example
