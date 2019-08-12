@@ -1,6 +1,6 @@
 {
   "name": "t.comp",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "scripts": {
     "build": "uglifyjs src/t.js --comments /^!/ --mangle --output dist/t.min.js",
     "test": "karma start test/karma.conf.js"

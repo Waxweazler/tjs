@@ -20,17 +20,27 @@ describe('T', function () {
         it('constructs each only once', function () {
             T.initialize();
             this.components.forEach(function (component) {
-                expect(component.clazz.calls.count()).toBe(1);
+                expect(component.clazz).toHaveBeenCalledTimes(1);
             });
         });
 
         it('wires each dependency', function () {
             T.initialize();
             this.components.forEach(function (component) {
+                var expectedWire = {};
                 component.dependencies.forEach(function (dependency) {
-                    expect(component.clazz.calls.mostRecent().args[0][dependency]).toBe(dependency);
+                    expectedWire[dependency] = dependency;
                 });
+                expect(component.clazz).toHaveBeenCalledWith(expectedWire);
             });
+        });
+
+        it('fires a custom event when initialization is finished', function () {
+            var spyEventHandler = jasmine.createSpy();
+            T.ready(spyEventHandler);
+            expect(spyEventHandler).not.toHaveBeenCalled();
+            T.initialize();
+            expect(spyEventHandler).toHaveBeenCalled();
         });
 
     });
