@@ -7,7 +7,8 @@ module.exports = function (config) {
             'test/spec/*.js'
         ],
         frameworks: ['jasmine'],
-        plugins: ['karma-jasmine', 'karma-phantomjs-launcher'],
+        plugins: ['karma-jasmine', 'karma-phantomjs-launcher', 'karma-verbose-reporter'],
+        reporters: ['verbose'],
         singleRun: true
     })
 };

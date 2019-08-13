@@ -6,11 +6,12 @@
     "test": "karma start test/karma.conf.js"
   },
   "devDependencies": {
-    "jquery": "~3.4.1",
-    "karma": "~4.2.0",
-    "karma-cli": "~2.0.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-phantomjs-launcher": "~1.0.4",
-    "uglify-js": "~3.6.0"
+    "jquery": "^3.4.1",
+    "karma": "^4.2.0",
+    "karma-cli": "^2.0.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-verbose-reporter": "^0.0.6",
+    "uglify-js": "^3.6.0"
   }
 }
