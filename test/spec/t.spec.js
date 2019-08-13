@@ -35,7 +35,7 @@ describe('T', function () {
             });
         });
 
-        it('fires a custom event when initialization is finished', function () {
+        it('fires a custom event when finished', function () {
             var spyEventHandler = jasmine.createSpy();
             T.ready(spyEventHandler);
             expect(spyEventHandler).not.toHaveBeenCalled();
@@ -52,11 +52,11 @@ describe('T', function () {
             T.add(this.component.name, this.component.dependencies, this.component.clazz);
         });
 
-        it('constructs components on demand', function () {
+        it('constructs on demand', function () {
             expect(T.get(this.component.name)).toBe(this.component.name);
         });
 
-        it('throws error for non-existing components', function () {
+        it('throws error for non-existing', function () {
             expect(function () {
                 T.get("NOT_EXISTING_COMP");
             }).toThrowError(TypeError);
