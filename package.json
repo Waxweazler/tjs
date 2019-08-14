@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/Waxweazler/t.comp",
   "name": "t.comp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "config": {
     "src": "src/t.js",
     "target": "dist/t.min.js"
