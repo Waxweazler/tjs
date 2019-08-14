@@ -1,3 +1,4 @@
+/*! @name@ v@version@ | @homepage@ */
 var T = (function () {
 
     var $construct = function () {

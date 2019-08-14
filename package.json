@@ -1,9 +1,18 @@
 {
+  "homepage": "https://github.com/Waxweazler/t.comp",
   "name": "t.comp",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "config": {
+    "src": "src/t.js",
+    "target": "dist/t.min.js"
+  },
   "scripts": {
-    "build": "uglifyjs src/t.js --comments /^!/ --mangle --output dist/t.min.js",
-    "test": "karma start test/karma.conf.js"
+    "build": "npm run uglifyjs && npm run replace-name && npm run replace-version && npm run replace-homepage",
+    "test": "karma start test/karma.conf.js",
+    "uglifyjs": "uglifyjs %npm_package_config_src% --comments /^!/ --mangle --output %npm_package_config_target%",
+    "replace-homepage": "replace-in-file @homepage@ %npm_package_homepage% %npm_package_config_target%",
+    "replace-name": "replace-in-file @name@ %npm_package_name% %npm_package_config_target%",
+    "replace-version": "replace-in-file @version@ %npm_package_version% %npm_package_config_target%"
   },
   "devDependencies": {
     "jquery": "^3.4.1",
@@ -12,6 +21,7 @@
     "karma-jasmine": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-verbose-reporter": "^0.0.6",
+    "replace-in-file": "^4.1.2",
     "uglify-js": "^3.6.0"
   }
 }
