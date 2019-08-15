@@ -7,12 +7,12 @@ T.add('Comp2', ['Comp3'], function ($wire) {
     var $public = {
 
         method: function () {
-            console.debug('Comp2::$public.method');
+            T.log('method', {component: 'Comp2'});
             $wire['Comp3'].method();
         }
 
     };
 
-    return $construct();
+    return $construct.call(this);
 
 });

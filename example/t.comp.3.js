@@ -7,15 +7,11 @@ T.add('Comp3', [], function () {
     var $public = {
 
         method: function () {
-            console.debug('Comp3::$public.method');
-        },
-
-        method2: function () {
-            console.debug('Comp3::$public.method2');
+            T.log('method', {component: 'Comp3'});
         }
 
     };
 
     return $construct();
 
-});
+}, true);

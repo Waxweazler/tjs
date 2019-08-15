@@ -45,10 +45,11 @@ var T = (function () {
                 : document.dispatchEvent(new CustomEvent('t.ready'));
         },
 
-        add: function (name, dependencies, clazz) {
+        add: function (name, dependencies, clazz, immediate) {
             $private.components[name] = {
-                name: name, dependencies: dependencies, clazz: clazz, wire: {}, instance: null
+                name: name, dependencies: dependencies, clazz: clazz, immediate: immediate, wire: {}, instance: null
             };
+            immediate && $private.build(name);
         },
 
         get: function (name) {

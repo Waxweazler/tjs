@@ -13,7 +13,7 @@ T.add('Comp1', ['Comp2', 'Comp3'], function ($wire) {
 
         handleEvent: function () {
             $wire['Comp2'].method();
-            $wire['Comp3'].method2();
+            $wire['Comp3'].method();
         }
 
     };
