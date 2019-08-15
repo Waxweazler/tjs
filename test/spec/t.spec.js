@@ -1,7 +1,12 @@
 describe('T', function () {
 
-    var createComponent = function (name, dependencies) {
-        return {name: name, dependencies: dependencies, clazz: jasmine.createSpy().and.returnValue(name)};
+    var createComponent = function (name, dependencies, immediate) {
+        return {
+            name: name,
+            dependencies: dependencies,
+            clazz: jasmine.createSpy().and.returnValue(name),
+            immediate: immediate
+        };
     };
 
     describe('initializes its components correctly', function () {
@@ -13,7 +18,7 @@ describe('T', function () {
                 createComponent('COMP_3', [])
             ];
             this.components.forEach(function (component) {
-                T.add(component.name, component.dependencies, component.clazz);
+                T.add(component.name, component.dependencies, component.clazz, component.immediate);
             });
         });
 
@@ -45,20 +50,36 @@ describe('T', function () {
 
     });
 
-    describe('provides components for external scripts', function () {
+    describe('adds components to the management', function () {
 
-        beforeEach(function () {
-            this.component = createComponent('COMP_4', []);
-            T.add(this.component.name, this.component.dependencies, this.component.clazz);
+        it('without build', function () {
+            var component = createComponent('COMP_10', [], false);
+            T.add(component.name, component.dependencies, component.clazz, component.immediate);
+            expect(component.clazz).not.toHaveBeenCalled();
         });
 
+        it('builds immediately', function () {
+            var component = createComponent('COMP_11', [], true);
+            T.add(component.name, component.dependencies, component.clazz, component.immediate);
+            expect(component.clazz).toHaveBeenCalled();
+        });
+
+    });
+
+    describe('provides components for external scripts', function () {
+
         it('constructs on demand', function () {
-            expect(T.get(this.component.name)).toBe(this.component.name);
+            var component = createComponent('COMP_20', []),
+                result;
+            T.add(component.name, component.dependencies, component.clazz, component.immediate);
+            result = T.get(component.name);
+            expect(result).toBe(component.name);
+            expect(component.clazz).toHaveBeenCalled();
         });
 
         it('throws error for non-existing', function () {
             expect(function () {
-                T.get("NOT_EXISTING_COMP");
+                T.get("NON_EXISTING_COMP");
             }).toThrowError(TypeError);
         });
 
