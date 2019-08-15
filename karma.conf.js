@@ -1,6 +1,5 @@
 module.exports = function (config) {
     config.set({
-        basePath: '',
         browsers: ['PhantomJS'],
         files: ['src/*', 'test/*'],
         frameworks: ['jasmine'],
