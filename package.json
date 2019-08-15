@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "npm run uglifyjs && npm run replace-name && npm run replace-version && npm run replace-homepage",
-    "test": "karma start test/karma.conf.js",
+    "test": "karma start",
     "uglifyjs": "uglifyjs %npm_package_config_src% --comments /^!/ --mangle --output %npm_package_config_target%",
     "replace-homepage": "replace-in-file @homepage@ %npm_package_homepage% %npm_package_config_target%",
     "replace-name": "replace-in-file @name@ %npm_package_name% %npm_package_config_target%",

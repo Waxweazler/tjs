@@ -1,11 +1,8 @@
 module.exports = function (config) {
     config.set({
-        basePath: '..',
+        basePath: '',
         browsers: ['PhantomJS'],
-        files: [
-            'src/t.js',
-            'test/spec/*.js'
-        ],
+        files: ['src/*', 'test/*'],
         frameworks: ['jasmine'],
         plugins: ['karma-jasmine', 'karma-phantomjs-launcher', 'karma-verbose-reporter'],
         reporters: ['verbose'],
