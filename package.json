@@ -1,6 +1,6 @@
 {
-  "homepage": "https://github.com/Waxweazler/t.comp",
-  "name": "t.comp",
+  "homepage": "https://github.com/Waxweazler/tjs",
+  "name": "tjs",
   "version": "1.0.3",
   "config": {
     "src": "src/t.js",

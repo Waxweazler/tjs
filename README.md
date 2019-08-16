@@ -1,5 +1,5 @@
-# t.comp
-Simple JS structure framework.
+# tjs
+Lightweight JavaScript structure framework.
 
 ## build
 Building is done with the help of [UglifyJS](https://github.com/mishoo/UglifyJS2).
