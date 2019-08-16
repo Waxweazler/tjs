@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/Waxweazler/t.comp",
   "name": "t.comp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "config": {
     "src": "src/t.js",
     "target": "dist/t.min.js"
@@ -15,10 +15,10 @@
     "replace-version": "replace-in-file @version@ %npm_package_version% %npm_package_config_target%"
   },
   "devDependencies": {
-    "jquery": "^3.4.1",
     "karma": "^4.2.0",
     "karma-cli": "^2.0.0",
     "karma-jasmine": "^2.0.1",
+    "karma-jquery": "^0.2.4",
     "karma-ie-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-verbose-reporter": "^0.0.6",

@@ -20,7 +20,7 @@ var T = (function () {
         },
 
         wire: function (component) {
-            component.dependencies.forEach(function (dependency) {
+            $.each(component.dependencies, function (index, dependency) {
                 $public.log('wire', {dependency: dependency, to: component.name});
                 component.wire[dependency] = $private.build(dependency);
             });
@@ -36,13 +36,12 @@ var T = (function () {
     var $public = {
 
         initialize: function () {
-            Object.keys($private.components).forEach($private.build);
+            $.each($private.components, $private.build);
             $public.ready();
         },
 
         ready: function (handler) {
-            handler ? document.addEventListener('t.ready', handler)
-                : document.dispatchEvent(new CustomEvent('t.ready'));
+            handler ? $(document).on('t.ready', handler) : $(document).trigger('t.ready');
         },
 
         add: function (name, dependencies, clazz, immediate) {
@@ -58,7 +57,7 @@ var T = (function () {
 
         log: function () {
             /debug/.test(window.location.search)
-            && window.console && window.console.log.apply(null, arguments);
+            && window.console && window.console.log.apply(window.console, arguments);
         }
 
     };
@@ -67,4 +66,4 @@ var T = (function () {
 
 })();
 
-document.addEventListener('DOMContentLoaded', T.initialize);
+$(T.initialize);
