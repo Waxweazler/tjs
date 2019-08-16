@@ -19,6 +19,7 @@
     "karma": "^4.2.0",
     "karma-cli": "^2.0.0",
     "karma-jasmine": "^2.0.1",
+    "karma-ie-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-verbose-reporter": "^0.0.6",
     "replace-in-file": "^4.1.2",
