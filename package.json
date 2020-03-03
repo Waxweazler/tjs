@@ -1,6 +1,6 @@
 {
   "homepage": "https://github.com/Waxweazler/tjs",
-  "name": "tjs",
+  "name": "@telekom/tjs",
   "version": "1.0.3",
   "config": {
     "src": "src/t.js",
